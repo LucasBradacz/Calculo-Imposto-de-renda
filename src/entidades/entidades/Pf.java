@@ -2,7 +2,7 @@ package entidades;
 
 public final class Pf extends Contribuinte {
 
-	private String cpf;
+	private final String cpf;
 
 	public Pf(String nome, String cpf, double salario) {
 		super(nome, salario);
@@ -15,16 +15,17 @@ public final class Pf extends Contribuinte {
 			System.out.println("Isento");
 			return 0;
 		} else if (this.getSalario() <= 3553.31) {
-			return this.salario * 0.75;
+			return (this.salario * 0.075);
 		} else if (super.getSalario() <= 4688.85) {
-			return (super.salario * (15/100));
-		} else if (super.salario <= 8530.85) {
-			return super.salario * (22.5/100);
+			return (this.salario * 0.15);
+		} else if (this.getSalario() <= 8530.85) {
+			return (this.salario * 0.225);
 		} else {
-			return super.salario * (27.5/100);
+			return (this.salario * 0.275);
 		}
 	}
 	
+    @Override
 	public void mostra() {
 		System.out.println(super.getNome());
 		System.out.println(super.getSalario());

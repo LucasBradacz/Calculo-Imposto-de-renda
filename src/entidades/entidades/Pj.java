@@ -2,7 +2,7 @@ package entidades;
 
 public final class Pj extends Contribuinte {
 
-	private String cnpj;
+	private final String cnpj;
 
 	public Pj(String nome, String cnpj, double salario) {
 		super(nome, salario);
@@ -14,6 +14,7 @@ public final class Pj extends Contribuinte {
 		return (this.getSalario() * 0.10);
 	}
 	
+    @Override
 	public void mostra() {
 		System.out.println(super.nome);
 		System.out.println(super.salario);
